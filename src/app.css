@@ -17,3 +17,65 @@ body {
   background: rgb(var(--background-rgb));
   color: rgb(var(--foreground-rgb));
 }
+
+/* Scrollbar Shit */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2c2f36 #111215;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111215;
+  border-left: 1px solid #22242a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c2f36;
+  border-radius: 9999px;
+  border: 2px solid #111215;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a100ed;
+  box-shadow: 0 0 10px rgba(161, 0, 237, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #b800ff;
+}
+
+::-webkit-scrollbar-corner {
+  background: #111215;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-left: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #22242a;
+    border: none;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #a100ed;
+  }
+}
