@@ -3,11 +3,21 @@ import { SERVER_INFO } from "../constants";
 import Community from "../components/Community";
 
 const fetchContributors = async () => {
-  const res = await fetch(
-    "https://api.github.com/repos/EclipseNetworks0/website/contributors"
-  );
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch(
+      "https://api.github.com/repos/EclipseNetworks0/website/contributors",
+      {
+        headers: {
+          "User-Agent": "ECN-Web",
+        },
+      }
+    );
+    if (!res.ok) return [];
+    return await res.json();
+  } catch (error) {
+    console.error("Failed to fetch contributors, sad noises:", error);
+    return [];
+  }
 };
 
 export default function Home() {
